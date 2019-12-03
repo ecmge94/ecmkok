@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Crear Estudiante
+{% endblock %}
+
+{% block header %}
+    <h1> Creacion Estudiante </h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success" type="submit">Guardar</button>
+        <a class="btn btn-danger" href="{% url 'home'%}">Cancelar</a>
+    </form>
+{% endblock %}

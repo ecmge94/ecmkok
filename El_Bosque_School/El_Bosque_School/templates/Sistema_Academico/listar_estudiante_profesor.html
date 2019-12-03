@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Estudiantes
+{% endblock %}
+
+{% block header %}
+    <h1> Estudiantes Actuales </h1>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>Usuario</td>
+            <td>Apellidos</td>
+            <td>Nombres</td>
+            <td>Identificacion</td>
+            <td>Fecha de Nacimiento</td>
+            <td>Lugar de Nacimiento</td>
+            <td>Sexo</td>
+            <td>Direccion</td>
+            <td>Telefono</td>
+            <td>Correo</td>
+            <td>Facultad</td>
+            <td>Promedio</td>
+            <td>Creditos Disponibles</td>
+            <td>Creditos Totales</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if object_list %}
+            {% for estudiante in object_list %}
+                <tr>
+                    {{estudiante.calcularPromedio}}
+                    {{estudiante.calcularCreditos}}
+                    {{estudiante.creditosDisponibles}}
+                    <td>{{estudiante.id }}}</td>
+                    <td>{{estudiante.Usuario}}</td>
+                    <td>{{estudiante.Apellidos }}</td>
+                    <td>{{estudiante.Nombres }}</td>
+                    <td>{{estudiante.Identificacion }}</td>
+                    <td>{{ estudiante.FechaNacimiento}}</td>
+                    <td>{{ estudiante.LugarNacimiento}}</td>
+                    <td>{{ estudiante.Sexo}}</td>
+                    <td>{{ estudiante.Direccion}}</td>
+                    <td>{{ estudiante.Telefono}}</td>
+                    <td>{{ estudiante.Correo}}</td>
+                    <td>{{ estudiante.Facu.Nombre}}</td>
+                    <td>{{ estudiante.Promedio }}</td>
+                    <td>{{ estudiante.CreditosDis }}</td>
+                    <td>{{ estudiante.Creditos }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1>No existen estudiantes</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'home'%}">Volver</a>
+{% endblock %}

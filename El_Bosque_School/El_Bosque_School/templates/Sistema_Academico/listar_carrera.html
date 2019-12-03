@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Carreras
+{% endblock %}
+
+{% block header %}
+    <h1> Carreras Actuales </h1>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Facultad</td>
+            <td>Acciones</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if object_list %}
+            {% for carrera in object_list %}
+                <tr>
+                    <td>{{carrera.id}}}</td>
+                    <td>{{carrera.Nombre}}}</td>
+                    <td>{{carrera.Facultad.Nombre}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'editar_carrera' carrera.id%}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'eliminar_carrera' carrera.id%}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1>No existen carreras</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'home'%}">Volver</a>
+{% endblock %}

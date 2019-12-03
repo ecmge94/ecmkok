@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Facultades
+{% endblock %}
+
+{% block header %}
+    <h1> Facultades Actuales </h1>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Acciones</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if object_list %}
+            {% for facultad in object_list %}
+                <tr>
+                    <td>{{ facultad.id}}}</td>
+                    <td>{{facultad.Nombre}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'editar_facultad' facultad.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'eliminar_facultad' facultad.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1>No existen facultades</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'home'%}">Volver</a>
+{% endblock %}

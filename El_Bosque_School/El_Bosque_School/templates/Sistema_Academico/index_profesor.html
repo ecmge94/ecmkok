@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+
+{% block header %}
+
+    <h1>Gestion Academica</h1>
+
+{% endblock %}
+
+{% block content %}
+    <h4> Contenido de la Gestion</h4>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Materias</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_materia' %}">Crear</a>
+                <a class="btn btn-primary" href="{% url 'listar_materia'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Estudiantes</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-primary" href="{% url 'listar_estudiante_profe'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Matriculas</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-primary" href="{% url 'listar_matricula'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/logout" class="btn btn-warning">Cerrar Sesion</a>
+{% endblock %}

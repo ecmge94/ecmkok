@@ -1,0 +1,114 @@
+{% extends 'base/base.html' %}
+
+{% block header %}
+
+    <h1>Gestion Academica</h1>
+
+{% endblock %}
+
+{% block content %}
+    <h4> Contenido de la Gestion</h4>
+
+    <table  class="table table-bordered">
+        <div class="busqueda">
+            <form class="navbar-search pull-left" action="buscar" method="POST">
+                {% csrf_token %}
+                <input type="text" name="buscalo" class="search-query" placeholder="Buscar">
+                <div class="btn-group">
+                    <button class="btn btn-info" type="submit"><i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Facultades</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_facultad' %}">Crear</a>
+                <a class="btn btn-primary" href="{% url 'listar_facultad'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Carreras</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_carrera' %}">Crear</a>
+                <a class="btn btn-primary" href="{% url 'listar_carrera'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Materias</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_materia' %}">Crear</a>
+                <a class="btn btn-primary" href="{% url 'listar_materia'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Estudiantes</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_estudiante' %}">Crear</a>
+                <a class="btn btn-primary" href="{% url 'listar_estudiante'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Matriculas</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_matricula' %}">Crear</a>
+                <a class="btn btn-primary" href="{% url 'listar_matricula'%}">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Usuarios</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a class="btn btn-success" href="{% url 'crear_usuario' %}">Crear</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/logout" class="btn btn-warning">Cerrar Sesion</a>
+{% endblock %}

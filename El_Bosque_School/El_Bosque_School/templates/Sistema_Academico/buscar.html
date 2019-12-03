@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Busqueda
+{% endblock %}
+
+{% block header %}
+    <h1>Busqueda Avanzada</h1>
+{% endblock %}
+
+{% block content%}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Identificacion</td>
+            <td>Apellidos</td>
+            <td>Nombres</td>
+            <td>Correo</td>
+            <td>Facultad</td>
+            <td>PDF</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if estudiante %}
+            {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.Identificacion }}</td>
+                    <td>{{ estudiante.Apellidos }}</td>
+                    <td>{{ estudiante.Nombres }}</td>
+                    <td>{{ estudiante.Correo }}</td>
+                    <td>{{ estudiante.Facu }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'mi_pdf' %}">Crear</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% elif matricula %}
+            {% for matricula in matriculas %}
+                <tr>
+                    <td>{{ matricula.Estudiante.Identificacion}}</td>
+                    <td>{{ matricula.Estudiante.Apellidos}}</td>
+                    <td>{{ matricula.Estudiante.Nombres}}</td>
+                    <td>{{ matricula.Estudiante.Correo}}</td>
+                    <td>{{ matricula.Estudiante.Facu}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'mi_pdf' %}">Crear</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1>No se encuentran resultados</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'home'%}">Volver</a>
+{% endblock %}

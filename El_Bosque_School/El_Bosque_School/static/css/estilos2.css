@@ -1,0 +1,25 @@
+body{
+    background-color: cornflowerblue;
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 1300px;
+    color: black;
+}
+
+body *{
+    font-family: Ubuntu;
+}
+
+thead{
+    color: darkblue;
+    font-weight: bold;
+}
+
+tbody{
+    font-weight: bold;
+}
+
+a{
+    text-align: center ;
+}

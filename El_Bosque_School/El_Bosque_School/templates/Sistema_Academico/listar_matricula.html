@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Matriculas
+{% endblock %}
+
+{% block header %}
+    <h1> Matriculas Actuales </h1>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>Estudiante</td>
+            <td>Materia</td>
+            <td>Nota</td>
+            <td>Acciones</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if object_list %}
+            {% for matricula in object_list %}
+                <tr>
+                    <td>{{ matricula.id}}}</td>
+                    <td>{{ matricula.Estudiante.NombreCompleto}}</td>
+                    <td>{{ matricula.Materia.Nombre}}</td>
+                    <td>{{ matricula.Nota }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'editar_matricula' matricula.id %}">Dar Nota</a>
+                        <a class="btn btn-danger" href="{% url 'eliminar_matricula' matricula.id%}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1>No existen matriculas</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'home'%}">Volver</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Eliminar Matricula
+{% endblock %}
+
+{% block header %}
+    <h1> Eliminar Matricula </h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h3>¿Desea eliminar el registro?</h3>
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <a class="btn btn-default" href="{% url 'listar_matricula' %}"><input type="button" value="Cancelar"></a>
+    </form>
+{% endblock %}

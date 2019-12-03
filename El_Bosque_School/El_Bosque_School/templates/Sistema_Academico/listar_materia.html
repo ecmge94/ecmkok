@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Materias
+{% endblock %}
+
+{% block header %}
+    <h1> Materias Actuales </h1>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Creditos</td>
+            <td>Facultad</td>
+            <td>Acciones</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if object_list %}
+            {% for materia in object_list %}
+                <tr>
+                    <td>{{ materia.id}}</td>
+                    <td>{{ materia.Nombre}}}</td>
+                    <td>{{ materia.Creditos}}</td>
+                    <td>{{materia.Facu.Nombre}}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'editar_materia' materia.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'eliminar_materia' materia.id%}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h1>No existen materias</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="{% url 'home'%}">Volver</a>
+{% endblock %}
