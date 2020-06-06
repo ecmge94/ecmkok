@@ -1,7 +1,7 @@
 backports.functools-lru-cache==1.6.1
 beautifulsoup4==4.8.1
 csrf==0.1b1
-Django==1.11.26
+Django==1.11.29
 django-bootstrap4==1.0.1
 djangorestframework==3.9.4
 html5lib==1.0.1
