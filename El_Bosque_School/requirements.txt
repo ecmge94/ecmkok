@@ -3,7 +3,7 @@ beautifulsoup4==4.8.1
 csrf==0.1b1
 Django==1.11.26
 django-bootstrap4==1.0.1
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 html5lib==1.0.1
 mysqlclient==1.4.4
 pdfkit==0.6.1
